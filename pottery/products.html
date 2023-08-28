@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css.">-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <title>Products</title>
+  <style type="text/css">
+    body{
+        background: #B9A180;
+    }
+    *{
+        box-sizing: border-box ;
+        margin:0;
+        padding: 0;
+    }
+    .header{
+      background-color: white;
+      height: 100px;
+      background-size: cover;
+      width: 100%;
+    }
+
+
+    nav{
+    display:flex;
+    padding: 2% 6%;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+nav img{
+    width:250px;
+    height: 200px;
+    margin-top: -80px;
+    margin-left: -120px;
+}
+
+
+.top{
+    flex:1;
+    text-align:right;
+    margin-top: -100px;
+}
+
+
+.nav-links ul li{
+  list-style: none;
+  display:inline-block;
+  padding: 8px 12px;
+  position:relative;  
+  right:60px;
+  top: 40px;
+}
+
+
+.nav-links ul li a{
+    color:#B9A180;
+    text-decoration: none;
+    font-size:13px;
+}
+
+
+.nav-links ul li::after{
+  content:''  ;
+  width:0%;
+  height:2px;
+  background: #9e4624;
+  display:block;
+  margin:auto;
+  transition:0.5s;
+}
+
+
+.nav-links ul li:hover::after{
+    width:100%;
+}
+ 
+    .container{
+      display: grid;
+        width:100%;
+        margin-top:100px ;
+        justify-content: space-around;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 50px;
+       
+    }
+    .front img{
+       width:100%;
+       height:100%;
+       border-radius: 10px;
+    }
+    .container1{
+      position: relative;
+      left:160px;
+    }
+    .front h2{
+        position: absolute;
+        left:60%;
+        top:10%;
+        font-size: 30px;
+        color: #B9A180;
+    }
+    .front h3{
+        position: absolute;
+        left:30%;
+        top:10%;
+        font-size: 25px;
+         
+    }
+    .front h4{
+        position: absolute;
+        left:50%;
+        top:10%;
+        font-size: 30px;
+         
+    }
+   
+    .back{
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background: white;
+        color:#B9A180;
+        padding:15px;
+        transform:perspective(600px) rotateY(180deg);
+        transition: transform .5s linear 0s;
+        backface-visibility: hidden;
+        border-radius: 10px;
+    }
+    .front{
+        transform:perspective(600px) rotateY(0deg);
+        transition: transform .5s linear 0s;
+        color:white;
+    }
+    .container1:hover > .front{
+        transform:perspective(600px) rotateY(-180deg);
+        cursor:pointer;
+
+
+    }
+    .container1:hover > .back{
+        transform:perspective(600px) rotateY(0deg);
+        cursor:pointer;
+    }
+
+
+    .cart{
+      display:flex;
+      background-color: #B9A180;
+      justify-content: space-between;
+      align-items:center;
+      padding:7px 10px;
+      border-radius: 3px;
+      width:80px;
+      list-style: none;
+      position: relative;
+      padding: 8px 12px;
+      left:970px;
+    }
+    .cart p{
+      height:22px;
+      width:22px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px;
+    }
+    .fa-x{
+        display: none;
+       }
+    .fa-bars{
+      display: none;
+    }
+
+
+
+
+
+
+    @media(max-width: 700px){
+        .header{
+          width:100%;
+        }
+        .container{
+         grid-template-columns: repeat(2,1fr);  
+         width:70%;
+         margin-left:-100px;
+         grid-gap: 60px;
+         margin-top: 30px;
+        }
+        .cart{
+          left:20px;
+         bottom:-45px;
+        }
+        nav img{
+          margin-top: -60px;
+          margin-left: -70px;
+        }
+        #last-container{
+          margin-bottom: 20px;
+        }
+        .nav-links ul li{
+        display:block;
+        top:200px;
+        margin-left: 30px;
+      }
+     
+    .nav-links{
+          position: absolute;
+          background: white;
+          height: 200vh;
+          width: 200px;
+          top:0px;
+          right:-200px;
+          text-align:left;
+          z-index: 2;
+          transition:1s;
+        }
+    .nav-links ul{
+          padding: 10px;
+          margin-left: 50px;
+          margin-top:-120px;
+    }
+    nav .fa-solid{
+       color:black;
+       font-size:22px;
+       cursor:pointer;
+       
+       }
+
+
+    .fa-x{
+        display: block;
+        margin-top:-70px;
+        margin-left:-10px !important;
+       
+     }
+       
+    .fa-bars{
+      display: block;
+    }
+    }
+
+
+    @media(max-width: 500px) {
+      .container{
+        grid-template-columns: repeat(1, 1fr) ;
+      }  
+    }
+
+
+  </style>
+</head>
+
+
+<body>
+   <div class="header">
+    <nav>
+      <a href="index.html"><img src="images/pottery logo.png" class="logo"></a>
+      <div class="top">
+      <div class="nav-links" id="navLinks">
+       
+          <ul>
+              <li><i class="fa-solid fa-x" onclick="hideMenu()"></i></li>
+              <span><li><a href="./index.html" onclick="hideMenu()">HOME</a></li>
+              <li><a href="./index.html" onclick="hideMenu()">ABOUT</a></li>
+              <li><a href="./index.html" onclick="hideMenu()">TEAM</a></li>
+              <li><a href="#Products" onclick="hideMenu()">PRODUCTS</a></li></span>
+            </ul>
+            </div>
+            <div class="cart">
+              <i class="fa-solid fa-cart-shopping" onclick="cartQuantity
+              console.log(`Cart quantity: ${cartQuantity}`)"></i><p id="count">0</p>
+             
+            </div>
+      </div>
+      <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+  </nav>
+ 
+</div>
+ 
+  <div class="container">
+
+
+    <div class="container1">
+      <div class="front">
+        <img src="images/vase.png">
+        <h2>VASES</h2>
+      </div>
+     <div class="back" id="Products">
+        <h2>Vase pottery pots</h2>
+        <p>Our carefully curated selection of artisan flower vases, terracotta pots, and planters offer the perfect addition to your decor.</p>
+          <button onclick="cartQuantity++
+          console.log(`Cart quantity: ${cartQuantity}`)">Add to cart</button>
+   
+      </div>
+    </div>
+
+
+    <!--2-->
+
+
+    <div class="container1">
+        <div class="front">
+          <img src="images/dishes.png">
+          <h4>Dish Pots</h4>
+        </div>
+        <div class="back">
+          <h2>Pottery for making and storing food</h2>
+          <p>Our carefully curated selection of artisan flower vases, terracotta pots, and planters offer the perfect addition to your decor.</p>
+          <button onclick="cartQuantity = cartQuantity + 1
+          console.log(`Cart quantity: ${cartQuantity}`)">Add to cart</button>
+        </div>
+      </div>
+
+
+      <div class="container1" id="last-container">
+        <div class="front">
+          <img src="images/ceramic.png">
+          <h3>Ceramic Bowls</h3>
+        </div>
+        <div class="back">
+          <h2>Handmade Irregular Ceramic Bowl</h2>
+          <p>Our adorable irregular ceramic bowls are perfect as a decoration piece or for dining!
+            As the bowls are hand painted, we recommend hand washing them!
+            The environmentally friendly reusable glass mugs are heat-resistant!
+            </p>
+            <button onclick="cartQuantity = cartQuantity + 1
+            console.log(`Cart quantity: ${cartQuantity}`)">Add to cart</button>
+        </div>
+      </div>
+  </div>
+  <script>
+
+
+   var navLinks = document.getElementById("navLinks");
+   function showMenu(){
+    navLinks.style.right = "0";
+   }
+   function hideMenu(){
+    navLinks.style.right = "-200px";
+   }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
