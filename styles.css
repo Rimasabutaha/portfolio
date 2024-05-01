@@ -437,3 +437,67 @@ form textarea {
     opacity: 1;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  /* Adjustments for smaller screens */
+  .header {
+    padding: 15px 10px;
+  }
+
+  .navbar a {
+    display: none;
+  }
+
+  .home-content {
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .home-content h3 {
+    font-size: 18px;
+  }
+
+  .home-content h1 {
+    font-size: 35px;
+  }
+
+  .home-content p {
+    font-size: 18px;
+  }
+
+  .btn-box,
+  .more,
+  .send {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .my-projects {
+    font-size: 60px;
+    padding: 10px;
+    margin-left: -45px;
+  }
+
+  .ps {
+    font-size: 15px;
+  }
+
+  .projects-list div {
+    padding: 20px;
+    margin-left: -25px;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    padding-left: 10;
+  }
+
+  .contact-text h2 {
+    font-size: 60px;
+    margin-left: -35px;
+  }
+
+  .contact-text p {
+    font-size: 15px;
+  }
+}
